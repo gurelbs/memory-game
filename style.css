@@ -43,3 +43,12 @@
     justify-content: center;
     place-items: center;
 }
+
+.opacity {
+    opacity: .5;
+}
+
+.color-transparent {
+    color: transparent;
+    font-size: 0;
+}
