@@ -18,18 +18,25 @@ const createCard = () => {
     })
 }
 createCard()
-const handleClick = e => {
-    if (e.target.classList.contains('card')) {
-        if (!e.target.classList.contains('opacity')) {
+
+const state = {}
+state.numbers = []
+state.numOfClick = 0
+
+const handleClicks = e => {
+    if (state.numOfClick < 2) {
+        if (!e.target.classList.contains('opacity') && state.numOfClick < 2) {
             e.target.classList.add('opacity')
-            console.log(e.target.textContent);
+            state.numOfClick++
+                state.numbers.push(e.target.textContent)
         }
-        [...cards.children].forEach(child => {
-            if (child.classList.contains('opacity')) {
-                console.log();
-            }
-        })
+        console.log(state.numbers);
+        if (state.numbers[0] === state.numbers[1]) {
+            console.log('currect guess !');
+        } else {
+            console.log('wrong guess');
+        }
     }
 }
 
-game.addEventListener('click', handleClick)
+game.addEventListener('click', handleClicks)
